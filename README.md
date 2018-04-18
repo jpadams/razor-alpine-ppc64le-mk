@@ -1,50 +1,22 @@
-# El Microkernel
+# Alpine ppc64le Microkernel
 
 This repository has the files/tools for building a Razor Microkernel based
-on RHEL/CentOS/Fedora. The resulting discovery image is used by the
+on Alpine Linux for the ppc64le architecture. The resulting discovery image is used by the
 [Razor server](https://github.com/puppetlabs/razor-server) to take
 inventory of new machines.
 
-# Resources
-
- * [CentOS 7 ISO](http://isoredirect.centos.org/centos/7/isos/x86_64/)
 
 # Getting Started
 
 This section describes how to build an image on a
 [CentOS](http://centos.org/) system.
 
-First, install the necessary system dependencies.  The system itself has been
-installed from the network infrastructure server role, with the compilers,
-rpmbuild tools, and system tools group selected.
-
-    yum -y install ruby livecd-tools
-    gem update --system && gem install rake bundler
-
-Disable SELinux when building the image:
-
-    setenforce 0
-
-Then, install project dependencies.  Installing into a local path will require
-the use of `bundle exec` when starting project executables.
-
-    bundle install --path .bundle/gems/
-
-To build an image, run the following on a CentOS machine:
-
-    bundle exec rake build
-    ./build-livecd
-    sudo ./build-livecd-root
-
-This will produce an ~ 130MB tar file `microkernel.tar`. To deploy this on
+This will produce a tar file `microkernel.tar`. To deploy this on
 an existing Razor server, extract it in the server's `repo_store_root` that
 you set in `config.yaml`:
 
     > tar xf microkernel.tar -C $repo_store_root
 
-For more information on the tools that do the heavy lifting of building the
-image, see the
-[Fedora Live CD page](https://fedoraproject.org/wiki/How_to_create_and_use_a_Live_CD?rd=How_to_create_and_use_Fedora_Live_CD)
 
 To log into the microkernel, use the root password `thincrust`. Also
 note that logging information will be sent to tty2.
