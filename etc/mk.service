@@ -1,0 +1,15 @@
+[Unit]
+Description=Razor Microkernel agent
+After=network.target syslog.target nss-lookup.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/var/lib/mk
+StandardInput=null
+StandardOutput=syslog
+StandardError=inherit
+SyslogIdentifier=microkernel
+ExecStart=/usr/local/bin/mk-update register
+
+[Install]
+WantedBy=multi-user.target
