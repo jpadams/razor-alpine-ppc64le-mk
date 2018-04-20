@@ -1,0 +1,10 @@
+#!/sbin/openrc-run
+
+command="/usr/local/bin/mk-update"
+command_args="register"
+pidfile="/run/${RC_SVCNAME}.pid"
+
+depend() {
+  need net
+  use dns logger
+}
