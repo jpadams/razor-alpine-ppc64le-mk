@@ -40,7 +40,7 @@ $(cat etc/mk.service)
 EOUNIT
 
 mkdir /var/lib/mk
-systemctl enable mk.timer
+rc-service mk start
 
 mkdir /usr/lib/razor
 
