@@ -4,6 +4,10 @@ command="/usr/local/bin/mk-register"
 pidfile="/run/${RC_SVCNAME}.pid"
 command_background=true
 
+start_pre() {
+  sleep 30;
+}
+
 depend() {
   need net
   use dns logger
