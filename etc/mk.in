@@ -1,7 +1,6 @@
 #!/sbin/openrc-run
 
-command="/usr/local/bin/mk-update"
-command_args="register"
+command="/usr/local/bin/mk-register"
 pidfile="/run/${RC_SVCNAME}.pid"
 
 depend() {
