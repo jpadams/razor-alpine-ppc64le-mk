@@ -40,7 +40,7 @@ $(cat etc/mk.service)
 EOUNIT
 
 mkdir /var/lib/mk
-rc-service mk start
+rc-update add mk
 
 mkdir /usr/lib/razor
 
