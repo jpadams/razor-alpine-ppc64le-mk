@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # Perform an MK runtime extension, if applicable, and then execute the MK
 # client with the same arguments passed to this script.
