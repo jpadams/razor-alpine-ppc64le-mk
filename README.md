@@ -81,7 +81,3 @@ addresses of network adapters found in the current system.
 Presently that is limited only to adapters with a visible name matching
 `/^eth/`, following the default naming convention for Linux wired
 Ethernet adapters.
-
-@todo danielp 2013-07-26: we should fix that, because it is too limited, and
-will no longer work once F19 or F20 roll out their new "purpose and physical
-location" naming convention for network adapters.
