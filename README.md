@@ -8,8 +8,8 @@ inventory of new machines.
 
 # Getting Started
 
-This section describes how to build an image on a
-[CentOS](http://centos.org/) system.
+This section describes how to build an image on an
+[Alpine Linux](http://alpinelinux.org/) system.
 
 This will produce a tar file `microkernel.tar`. To deploy this on
 an existing Razor server, extract it in the server's `repo_store_root` that
