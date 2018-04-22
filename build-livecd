@@ -39,10 +39,6 @@ cat > /etc/systemd/system/mk.service <<EOUNIT
 $(cat etc/mk.service)
 EOUNIT
 
-cat > /etc/systemd/system/mk.timer <<EOUNIT
-$(cat etc/mk.timer)
-EOUNIT
-
 mkdir /var/lib/mk
 systemctl enable mk.timer
 
