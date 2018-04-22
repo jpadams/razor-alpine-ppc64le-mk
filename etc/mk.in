@@ -2,6 +2,7 @@
 
 command="/usr/local/bin/mk-register"
 pidfile="/run/${RC_SVCNAME}.pid"
+command_background=true
 
 depend() {
   need net
