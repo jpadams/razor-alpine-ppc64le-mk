@@ -60,7 +60,8 @@ apk add binutils
 # We need a ruby env and all of facter's dependencies fulfilled
 #rubygems 'ruby' in main repo, includes 'gem' command
 apk add ruby
-#facter - not in 'main' repo
+#facter - not in 'main' repo, but gem is available
+gem install facter
 apk add net-tools
 
 #
