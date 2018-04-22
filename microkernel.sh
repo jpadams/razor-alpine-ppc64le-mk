@@ -72,45 +72,46 @@ apk add net-tools
 -ed
 
 # Remove the authconfig pieces
--authconfig
--passwd
+#-authconfig
+#-passwd
 
 # Remove the kbd bits
--kbd
--usermode
+apk del kbd
+#-usermode
 
 # file system stuff
--kpartx
--dmraid
--mdadm
--lvm2
--e2fsprogs
--e2fsprogs-libs
+#-kpartx
+#-dmraid
+apk del mdadm
+apk del lvm2
+apk del e2fsprogs
+apk del e2fsprogs-libs
 
 # grub
--freetype
--grub2
--grub2-tools
--grubby
--os-prober
+apk del freetype
+#-grub2
+apk del grub
+#-grub2-tools
+#-grubby
+#-os-prober
 
 # selinux toolchain of policycoreutils, libsemanage, ustr
--policycoreutils
--checkpolicy
--selinux-policy*
--libselinux-python
--libselinux
-%end
+#-policycoreutils
+#-checkpolicy
+#-selinux-policy*
+#-libselinux-python
+#-libselinux
+#%end
 
 # Install the microkernel agent
 %include mk-install.ks
 
 # Try to minimize the image a bit
-%post
+#%post
 # ensure we don't have the same random seed on every image, which
 # could be bad for security at a later point...
-echo " * purge existing random seed to avoid identical seeds everywhere"
-rm -f /var/lib/random-seed
+#echo " * purge existing random seed to avoid identical seeds everywhere"
+#rm -f /var/lib/random-seed
 
 # I can't tell if this should force a new SSH key, or force a fixed one,
 # but for now we can ensure that we generate new keys when SSHD is finally
