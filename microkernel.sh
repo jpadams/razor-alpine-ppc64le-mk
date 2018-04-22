@@ -1,45 +1,33 @@
-# Kickstart file to build a small Fedora image
-# This is based on the work at http://www.thincrust.net
-# Also based on https://git.fedorahosted.org/cgit/cloud-kickstarts.git/tree/container/container-small-19.ks
-lang en_US.UTF-8
-keyboard us
-timezone --utc Etc/UTC
-auth --useshadow --enablemd5
-selinux --permissive
-bootloader --timeout=1 --append="acpi=force"
-services --enabled=NetworkManager
-
 # Uncomment the next line
 # to make the root password be thincrust
 # By default the root password is emptied
-rootpw --iscrypted $1$uw6MV$m6VtUWPed4SqgoW6fKfTZ/
+#rootpw --iscrypted $1$uw6MV$m6VtUWPed4SqgoW6fKfTZ/
 
 #
 # Partition Information. Change this as necessary
 # This information is used by appliance-tools but
 # not by the livecd tools.
 #
-part / --size 1024 --fstype ext4 --ondisk sda
+#part / --size 1024 --fstype ext4 --ondisk sda
 
 #
 # Repositories
 #
-repo --name=base --mirrorlist=http://mirrorlist.centos.org/?release=7&arch=$basearch&repo=os
-repo --name=updates --mirrorlist=http://mirrorlist.centos.org/?release=7&arch=$basearch&repo=updates
-repo --name=puppetlabs-products --baseurl=http://yum.puppetlabs.com/el/7/products/$basearch
-repo --name=puppetlabs-deps --baseurl=http://yum.puppetlabs.com/el/7/dependencies/$basearch
+#handled by /etc/apk/repositories
 
 #
 # Add all the packages after the base packages
 #
 %packages --excludedocs --nobase
-bash
-kernel
-grub2
-e2fsprogs
-passwd
-policycoreutils
-chkconfig
+#bash - can be added, but do we need it?
+#apk add bash
+#kernel - not in 'main' repo, but do we need it?
+#grub2 - 'grub' is in 'main' repo, but do we need it?
+#apk add grub
+#e2fsprogs - not in 'main' repo, but do we need it?
+#passwd - not in 'main' repo, but do we need it?
+#policycoreutils - not in 'main' repo, but do we need it?
+#chkconfig - 
 rootfiles
 yum
 vim-minimal
