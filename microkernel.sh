@@ -27,56 +27,41 @@
 #e2fsprogs - not in 'main' repo, but do we need it?
 #passwd - not in 'main' repo, but do we need it?
 #policycoreutils - not in 'main' repo, but do we need it?
-#chkconfig - 
-rootfiles
-yum
-vim-minimal
-acpid
-tar
+#chkconfig - handled by 'rc-update add mk'?
+#rootfiles - not in 'main' repo, but do we need it?
+#yum - use 'apk' package manager on Alpine instead
+#vim-minimal - 'vim' is in 'main' repo, but do we need it? 'vi' already there.
+#acpid - not in 'main' repo, but do we need it? Probably not for ppc64le?
+#tar - pre-installed on 'Vanilla' Alpine Linux v3.7 iso
 # RAZOR-145 Add dmidecode for facter support
-dmidecode
+#dmidecode - Probably not for ppc64le?
+#apk add dmidecode
 # Additional dependency for facter support
-virt-what
+#virt-what - not in 'main' repo, but do we need it? Probably not for ppc64le?
 
 # Only needed because livecd-tools runs /usr/bin/firewall-offline-cmd
 # unconditionally; patch submitted upstream. Remove once released version
 # with it is available
-firewalld
+#firewalld - not on Alpine. 'iptables' is in repo, but do we need it?
+apk add iptables
 
 # SSH access
-openssh-clients
-openssh-server
+apk add openssh-client
+apk add openssh-server
 
-# In order to have network connections managed effectively, we use
-# NetworkManager.  This is ~ 5.9MB of space in the image, but it also means
-# that we are (A) using the recommended and default upstream configuration,
-# and (B) no longer responsible for doing all the network management
-# ourselves.  This is, overall, a big win for everyone.
-#
-# Also, this opens the door to allowing for more complex configurations such
-# as 802.1x secured network links, VPN connectivity for communication with the
-# host, and so forth -- should we decide we need it.
-#
-# Ultimately, though, that as the upstream project write:
-#
-#    "Fedora now by default relies on NetworkManager for network
-#     configuration. This is the case also for minimal installations and server
-#     installations. We are trying to make NetworkManager as suitable for this
-#     task as possible."
-#
-# I hope that doesn't offend.  Dropping this in just works! --daniel 2013-11-07
-NetworkManager
+#NetworkManager - networking already in place on 'vanilla'
 
 # Used to update code at runtime
-unzip
+apk add unzip
 
 # Enable stripping
-binutils
+apk add binutils
 
 # We need a ruby env and all of facter's dependencies fulfilled
-rubygems
-facter
-net-tools
+#rubygems 'ruby' in main repo. Need to find rubygems
+apk add ruby
+#facter - not in 'main' repo
+apk add net-tools
 
 #
 # Packages to Remove
