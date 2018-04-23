@@ -1,3 +1,4 @@
+apk update
 apk add mkinitfs
 apk add git
 apk add bash
