@@ -3,6 +3,7 @@ apk add alpine-sdk build-base apk-tools alpine-conf busybox fakeroot syslinux xo
 git clone git://git.alpinelinux.org/aports
 
 apk update
+adduser build -G abuild
 
 PROFILENAME=mk
 
@@ -21,7 +22,7 @@ chmod +x mkimg.$PROFILENAME.sh
 
 mkdir -p ~/iso
 
-sh mkimage.sh --tag edge \
+su build sh mkimage.sh --tag edge \
 	--outdir ~/iso \
 	--arch x86_64 \
 	--repository http://dl-cdn.alpinelinux.org/alpine/edge/main \
