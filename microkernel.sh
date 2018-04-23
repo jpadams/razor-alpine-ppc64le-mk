@@ -166,26 +166,30 @@ mv /usr/lib/locale/locale-archive /usr/lib/locale/locale-archive.tmpl
 
 # remove things only needed during the build process
 echo " * purging packages needed only during build"
-yum -C -y --setopt="clean_requirements_on_remove=1" erase \
-    syslinux mtools acl ebtables firewalld libselinux-python \
-    python-decorator dracut hardlink kpartx passwd
+#yum -C -y --setopt="clean_requirements_on_remove=1" erase \
+#    syslinux mtools acl ebtables firewalld libselinux-python \
+#    python-decorator dracut hardlink kpartx passwd
+apk del syslinux mtools acl ebtables iptables
 
-echo " * purging all other locale data"
-rm -rf /usr/share/locale/*
+#n/a
+#echo " * purging all other locale data"
+#rm -rf /usr/share/locale/*
 
-echo " * cleaning up yum cache, etc"
-yum clean all
+#n/a package cache not enabled by default on 'Vanilla'
+#echo " * cleaning up yum cache, etc"
+#   yum clean all
 
-echo " * truncating various logfiles"
-for log in yum.log dracut.log lastlog yum.log; do
-    truncate -c -s 0 /var/log/${log}
-done
+#echo " * truncating various logfiles"
+#for log in yum.log dracut.log lastlog yum.log; do
+#    truncate -c -s 0 /var/log/${log}
+#done
 
-echo " * removing /boot, since that lives on the ISO side"
-rm -rf /boot/*
-%end
+#echo " * removing /boot, since that lives on the ISO side"
+# PROB KEEP THIS?
+#rm -rf /boot/*
+#%end
 
-%post --nochroot
+#%post --nochroot
 echo " * disquieting the microkernel boot process"
 sed -i -e's/ rhgb//g' -e's/ quiet//g' $LIVE_ROOT/isolinux/isolinux.cfg
-%end
+#%end
