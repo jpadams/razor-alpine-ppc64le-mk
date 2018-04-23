@@ -91,3 +91,4 @@ Ethernet adapters.
 - https://github.com/OpenRC/openrc/blob/master/service-script-guide.md
 - https://forum.alpinelinux.org/forum/general-discussion/run-script-boot
 - https://pkgs.alpinelinux.org/packages
+- https://git.alpinelinux.org/cgit/mkinitfs/tree/initramfs-init.in
