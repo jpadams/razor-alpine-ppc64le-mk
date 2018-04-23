@@ -1,3 +1,4 @@
+apk add git
 # Uncomment the next line
 # to make the root password be thincrust
 # By default the root password is emptied
@@ -171,7 +172,7 @@ echo " * purging packages needed only during build"
 #yum -C -y --setopt="clean_requirements_on_remove=1" erase \
 #    syslinux mtools acl ebtables firewalld libselinux-python \
 #    python-decorator dracut hardlink kpartx passwd
-apk del syslinux mtools acl ebtables iptables ruby-rake ruby-bundler
+apk del syslinux mtools acl ebtables iptables ruby-rake ruby-bundler git
 
 #n/a
 #echo " * purging all other locale data"
