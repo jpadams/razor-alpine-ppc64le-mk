@@ -60,6 +60,8 @@ apk add binutils
 # We need a ruby env and all of facter's dependencies fulfilled
 #rubygems 'ruby' in main repo, includes 'gem' command
 apk add ruby
+apk add ruby-rake
+apk add ruby-bundler
 #facter - not in 'main' repo, but gem is available
 gem install facter --no-ri --no-rdoc
 apk add net-tools
@@ -169,7 +171,7 @@ echo " * purging packages needed only during build"
 #yum -C -y --setopt="clean_requirements_on_remove=1" erase \
 #    syslinux mtools acl ebtables firewalld libselinux-python \
 #    python-decorator dracut hardlink kpartx passwd
-apk del syslinux mtools acl ebtables iptables
+apk del syslinux mtools acl ebtables iptables ruby-rake ruby-bundler
 
 #n/a
 #echo " * purging all other locale data"
