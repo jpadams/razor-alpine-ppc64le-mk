@@ -63,6 +63,7 @@ apk add binutils
 apk add ruby
 apk add ruby-rake
 apk add ruby-bundler
+gem install rspec --no-ri --no-rdoc
 #facter - not in 'main' repo, but gem is available
 gem install facter --no-ri --no-rdoc
 apk add net-tools
@@ -173,6 +174,7 @@ echo " * purging packages needed only during build"
 #    syslinux mtools acl ebtables firewalld libselinux-python \
 #    python-decorator dracut hardlink kpartx passwd
 apk del syslinux mtools acl ebtables iptables ruby-rake ruby-bundler git
+gem uninstall rspec
 
 #n/a
 #echo " * purging all other locale data"
