@@ -35,8 +35,7 @@ echo Working in directory $tmpdir
 #livecd-creator -v --cache /var/cache/microkernel --config $srcdir/microkernel.ks -f microkernel || KEEP_TMPDIR=yes
 
 echo "* Converting to initrd"
-#livecd-iso-to-pxeboot $
-microkernel.iso || KEEP_TMPDIR=yes
+#livecd-iso-to-pxeboot $tmpdir/microkernel.iso || KEEP_TMPDIR=yes
 #mkinitfs -o $tmpdir/microkernel.iso || KEEP_TMPDIR=yes
 mkinitfs -o /tmp/microkernel.cpio.gz
 
