@@ -137,8 +137,8 @@ rc-update del sshd
 #EOMEI
 #no mei kernel module loaded in 'Vanilla'
 #to check kernel mods run:
-# apk add kmod
-# kmod list
+#    apk add kmod
+#    kmod list
 
 #n/a
 #echo " * removing trusted CA certificates"
@@ -159,10 +159,10 @@ rc-update del sshd
 
 # 100MB of locale archive is kind unnecessary; we only do en_US.utf8
 # this will clear out everything we don't need; 100MB => 2.1MB.
-echo " * minimizing locale-archive binary / memory size"
-localedef --list-archive | grep -iv 'en_US' | xargs localedef -v --delete-from-archive
-mv /usr/lib/locale/locale-archive /usr/lib/locale/locale-archive.tmpl
-/usr/sbin/build-locale-archive
+#echo " * minimizing locale-archive binary / memory size"
+#localedef --list-archive | grep -iv 'en_US' | xargs localedef -v --delete-from-archive
+#mv /usr/lib/locale/locale-archive /usr/lib/locale/locale-archive.tmpl
+#/usr/sbin/build-locale-archive
 
 # remove things only needed during the build process
 echo " * purging packages needed only during build"
