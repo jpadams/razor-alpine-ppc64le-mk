@@ -109,6 +109,8 @@ apk del grub
 
 # Install the microkernel agent
 #%include mk-install.ks
+MY_DIR=$(dirname $(readlink -f $0))
+$MY_DIR/mk-install.sh
 
 # Try to minimize the image a bit
 #%post
