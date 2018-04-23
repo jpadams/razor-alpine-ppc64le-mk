@@ -93,3 +93,4 @@ Ethernet adapters.
 - https://pkgs.alpinelinux.org/packages
 - https://git.alpinelinux.org/cgit/mkinitfs/
 - https://wiki.alpinelinux.org/wiki/PXE_boot
+- https://wiki.alpinelinux.org/wiki/Talk:PXE_boot
