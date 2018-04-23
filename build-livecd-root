@@ -37,7 +37,7 @@ echo Working in directory $tmpdir
 echo "* Converting to initrd"
 #livecd-iso-to-pxeboot $
 microkernel.iso || KEEP_TMPDIR=yes
-#mkinitfs -o $tmpdir/microkernel.cpio.gz || KEEP_TMPDIR=yes
+#mkinitfs -o $tmpdir/microkernel.iso || KEEP_TMPDIR=yes
 mkinitfs -o /tmp/microkernel.cpio.gz
 
 echo "* Building tarball"
