@@ -163,6 +163,8 @@ rc-update del sshd
 #echo "ForwardToConsole=yes" >> /etc/systemd/journald.conf
 #echo "TTYPath=/dev/tty2" >> /etc/systemd/journald.conf
 
+apk add mkinitfs
+
 # 100MB of locale archive is kind unnecessary; we only do en_US.utf8
 # this will clear out everything we don't need; 100MB => 2.1MB.
 #echo " * minimizing locale-archive binary / memory size"
