@@ -45,7 +45,6 @@ apk del freetype
 apk del grub
 
 # Install the microkernel agent
-#%include mk-install.ks
 MY_DIR=$(dirname $(readlink -f $0))
 $MY_DIR/mk-install.sh
 
