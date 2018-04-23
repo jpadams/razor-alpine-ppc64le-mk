@@ -35,12 +35,14 @@ echo Working in directory $tmpdir
 #livecd-creator -v --cache /var/cache/microkernel --config $srcdir/microkernel.ks -f microkernel || KEEP_TMPDIR=yes
 
 echo "* Converting to initrd"
-#livecd-iso-to-pxeboot $tmpdir/microkernel.iso || KEEP_TMPDIR=yes
-mkinitfs -o $tmpdir/microkernel.iso || KEEP_TMPDIR=yes
+#livecd-iso-to-pxeboot $
+microkernel.iso || KEEP_TMPDIR=yes
+#mkinitfs -o $tmpdir/microkernel.cpio.gz || KEEP_TMPDIR=yes
+mkinitfs -o /tmp/microkernel.cpio.gz
 
 echo "* Building tarball"
 mkdir microkernel
-mv tftpboot/initrd0.img tftpboot/vmlinuz0 microkernel || KEEP_TMPDIR=yes
+mv /tmp//initrd0.img /media/cdrom/boot/vmlinuz microkernel || KEEP_TMPDIR=yes
 cd microkernel
 cat > README <<EOF
 This is a Microkernel for the new Razor
