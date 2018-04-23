@@ -31,11 +31,12 @@ last_tag=$(git describe)
 cd $tmpdir
 echo Working in directory $tmpdir
 
-echo "* Running livecd-creator"
-livecd-creator -v --cache /var/cache/microkernel --config $srcdir/microkernel.ks -f microkernel || KEEP_TMPDIR=yes
+#echo "* Running livecd-creator"
+#livecd-creator -v --cache /var/cache/microkernel --config $srcdir/microkernel.ks -f microkernel || KEEP_TMPDIR=yes
 
 echo "* Converting to initrd"
-livecd-iso-to-pxeboot $tmpdir/microkernel.iso || KEEP_TMPDIR=yes
+#livecd-iso-to-pxeboot $tmpdir/microkernel.iso || KEEP_TMPDIR=yes
+mkinitfs
 
 echo "* Building tarball"
 mkdir microkernel
