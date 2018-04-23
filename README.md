@@ -95,3 +95,4 @@ Ethernet adapters.
 - https://wiki.alpinelinux.org/wiki/PXE_boot
 - https://wiki.alpinelinux.org/wiki/Talk:PXE_boot
 - https://wiki.alpinelinux.org/wiki/How_to_make_a_custom_ISO_image_with_mkimage
+- http://wiki.alpinelinux.org/wiki/Burning_ISOs
