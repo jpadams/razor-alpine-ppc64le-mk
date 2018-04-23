@@ -61,7 +61,7 @@ apk add binutils
 #rubygems 'ruby' in main repo, includes 'gem' command
 apk add ruby
 #facter - not in 'main' repo, but gem is available
-gem install facter
+gem install facter --no-ri --no-rdoc
 apk add net-tools
 
 #
