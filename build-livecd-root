@@ -45,7 +45,7 @@ cat > README <<EOF
 This is a Microkernel for the new Razor
 (https://github.com/puppetlabs/razor-server)
 
-The microkernel was built from https://github.com/puppetlabs/razor-el-mk
+The microkernel was built from https://github.com/puppetlabs/razor-alpine-ppc64le-mk
 at commit $last_tag
 
 For instructions on how to set things up, read
