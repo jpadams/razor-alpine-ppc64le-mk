@@ -16,12 +16,12 @@ if [ ! -f "$GEM_FILE" ]; then
     exit 1
 fi
 
-cat > mk-install.ks <<EOF
-%post --nochroot
+cat > mk-install.sh <<EOF
+#%post --nochroot
 cp $TOP_DIR/pkg/razor-mk-agent-${VERSION}.gem \$INSTALL_ROOT/var/tmp
-%end
+#%end
 
-%post
+#%post
 gem install -l --no-ri --no-rdoc /var/tmp/razor-mk-agent-${VERSION}.gem
 rm -f /var/tmp/razor-mk-agent-${VERSION}.gem
 
@@ -46,7 +46,7 @@ mkdir /usr/lib/razor
 
 # enable the reboot command from the Razor server
 ln -sf /sbin/reboot /usr/lib/razor/reboot
-%end
+#%end
 EOF
 
 echo "Now run as root"
