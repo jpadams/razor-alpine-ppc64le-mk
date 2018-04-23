@@ -83,8 +83,8 @@ Presently that is limited only to adapters with a visible name matching
 Ethernet adapters.
 
 ### Notes
-https://wiki.alpinelinux.org/wiki/Install_to_disk
-http://dl-3.alpinelinux.org/alpine/v3.7/main/x86_64/
+(https://wiki.alpinelinux.org/wiki/Install_to_disk)
+(http://dl-3.alpinelinux.org/alpine/v3.7/main/x86_64/)
 http://dl-3.alpinelinux.org/alpine/v3.7/main/ppc64le/
 https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
 https://wiki.gentoo.org/wiki/OpenRC_to_systemd_Cheatsheet
