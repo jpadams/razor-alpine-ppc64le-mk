@@ -92,3 +92,4 @@ Ethernet adapters.
 - https://forum.alpinelinux.org/forum/general-discussion/run-script-boot
 - https://pkgs.alpinelinux.org/packages
 - https://git.alpinelinux.org/cgit/mkinitfs/
+- https://wiki.alpinelinux.org/wiki/PXE_boot
