@@ -189,7 +189,8 @@ apk del syslinux mtools acl ebtables iptables
 #rm -rf /boot/*
 #%end
 
+# Revisit this. Not sure if n/a or what
 #%post --nochroot
-echo " * disquieting the microkernel boot process"
-sed -i -e's/ rhgb//g' -e's/ quiet//g' $LIVE_ROOT/isolinux/isolinux.cfg
+#echo " * disquieting the microkernel boot process"
+#sed -i -e's/ rhgb//g' -e's/ quiet//g' $LIVE_ROOT/isolinux/isolinux.cfg
 #%end
