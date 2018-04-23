@@ -18,7 +18,7 @@
 #
 # Add all the packages after the base packages
 #
-%packages --excludedocs --nobase
+#%packages --excludedocs --nobase
 #bash - can be added, but do we need it?
 #apk add bash
 #kernel - not in 'main' repo, but do we need it?
@@ -29,7 +29,7 @@
 #policycoreutils - not in 'main' repo, but do we need it?
 #chkconfig - handled by 'rc-update add mk'?
 #rootfiles - not in 'main' repo, but do we need it?
-#yum - use 'apk' package manager on Alpine instead
+#yum - we use 'apk' package manager on Alpine instead. Already installed on 'Vanilla' Alpine Linux.
 #vim-minimal - 'vim' is in 'main' repo, but do we need it? 'vi' already there.
 #acpid - not in 'main' repo, but do we need it? Probably not for ppc64le?
 #tar - pre-installed on 'Vanilla' Alpine Linux v3.7 iso
@@ -67,9 +67,9 @@ apk add net-tools
 #
 # Packages to Remove
 #
--prelink
--setserial
--ed
+#-prelink
+#-setserial
+apk del ed
 
 # Remove the authconfig pieces
 #-authconfig
@@ -104,7 +104,7 @@ apk del grub
 #%end
 
 # Install the microkernel agent
-%include mk-install.ks
+#%include mk-install.ks
 
 # Try to minimize the image a bit
 #%post
@@ -120,34 +120,42 @@ apk del grub
 # We also disable SSHd automatic startup in the final image.
 echo " * disable sshd and purge existing SSH host keys"
 rm -f /etc/ssh/ssh_host_*key{,.pub}
-systemctl disable sshd.service
+rc-update del sshd
 
-echo " * removing python precompiled *.pyc files"
-find /usr/lib64/python*/ -name *pyc -print0 | xargs -0 rm -f
+#echo " * removing python precompiled *.pyc files"
+#find /usr/lib64/python*/ -name *pyc -print0 | xargs -0 rm -f
 
 # This seems to cause 'reboot' resulting in a shutdown on certain platforms
 # See https://tickets.puppetlabs.com/browse/RAZOR-100
-echo " * disable the mei_me module"
-mkdir -p /etc/modprobe.d
-cat > /etc/modprobe.d/mei.conf <<EOMEI
-blacklist mei_me
-install mei_me /bin/true
-blacklist mei
-install mei /bin/true
-EOMEI
+#echo " * disable the mei_me module"
+#mkdir -p /etc/modprobe.d
+#cat > /etc/modprobe.d/mei.conf <<EOMEI
+#blacklist mei_me
+#install mei_me /bin/true
+#blacklist mei
+#install mei /bin/true
+#EOMEI
+#no mei kernel module loaded in 'Vanilla'
+#to check kernel mods run:
+# apk add kmod
+# kmod list
 
-echo " * removing trusted CA certificates"
-truncate -s0 /usr/share/pki/ca-trust-source/ca-bundle.trust.crt
-update-ca-trust
+#n/a
+#echo " * removing trusted CA certificates"
+#truncate -s0 /usr/share/pki/ca-trust-source/ca-bundle.trust.crt
+#update-ca-trust
+#maybe remove /usr/share/ca-certificates/mozilla/*  ? 
 
-echo " * compressing cracklib dictionary"
-gzip -9 /usr/share/cracklib/pw_dict.pwd
+#n/a/
+#echo " * compressing cracklib dictionary"
+#gzip -9 /usr/share/cracklib/pw_dict.pwd
 
-echo " * setting up journald and tty2"
-echo "SystemMaxUse=15M" >> /etc/systemd/journald.conf
-echo "ForwardToSyslog=no" >> /etc/systemd/journald.conf
-echo "ForwardToConsole=yes" >> /etc/systemd/journald.conf
-echo "TTYPath=/dev/tty2" >> /etc/systemd/journald.conf
+#n/a
+#echo " * setting up journald and tty2"
+#echo "SystemMaxUse=15M" >> /etc/systemd/journald.conf
+#echo "ForwardToSyslog=no" >> /etc/systemd/journald.conf
+#echo "ForwardToConsole=yes" >> /etc/systemd/journald.conf
+#echo "TTYPath=/dev/tty2" >> /etc/systemd/journald.conf
 
 # 100MB of locale archive is kind unnecessary; we only do en_US.utf8
 # this will clear out everything we don't need; 100MB => 2.1MB.
