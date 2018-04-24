@@ -96,3 +96,8 @@ Ethernet adapters.
 - https://wiki.alpinelinux.org/wiki/Talk:PXE_boot
 - https://wiki.alpinelinux.org/wiki/How_to_make_a_custom_ISO_image_with_mkimage
 - http://wiki.alpinelinux.org/wiki/Burning_ISOs
+- https://stackoverflow.com/questions/42615455/how-to-create-vmlinuz-and-initrd
+- https://wiki.alpinelinux.org/wiki/Include:Setup_your_system_and_account_for_building_packages
+- http://wiki.alpinelinux.org/wiki/Alpine_local_backup#Include_special_files.2Ffolders_to_the_apkovl
+- https://forum.alpinelinux.org/forum/general-discussion/startup-actions-custom-iso-images
+- https://wiki.alpinelinux.org/wiki/Installation
